@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block header %}
+<figure class="text-center higth:100px">
+    <blockquote class="blockquote">
+      <p class="display-5">CHARACTER COUNT</p>
+      <p class="text-white">{{ dt_now }}</p>
+    </blockquote>
+  </figure>
+
+{% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <label class="text-white p-1">title</label>
+    <p><input type="text" name="TITLE" value="{{title}}" size="40" class="text-center"></p>
+    <label class="text-white p-1">text</label>
+    <p><textarea  name="TEXT" cols="50" rows="13">{{text}}</textarea></p>
+    <button type="submit">COUNT</button>
+</form>
+{% endblock %}
+
+{% block sidebar %}
+<div class="my-2">
+<h2 class=" text-white">文字数</h2>
+<h1 class=" text-danger">~<em>{{text_count}}</em>~</h1>
+</div>
+{% endblock %}
